@@ -84,12 +84,20 @@ def main():
     accuracy = np.mean(test_predictions == y_test)
     print(f"Accuracy: {accuracy * 100:.2f}%")
 
+    # 绘制决策边界
+    x_values = np.array([X[:, 0].min() - 1, X[:, 0].max() + 1])
+    y_values = -(model.weights[0] * x_values + model.bias) / model.weights[1]
+    plt.plot(x_values, y_values, label='Decision Boundary', color='blue')
+
     # 绘制散点图
     plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Set1, edgecolor='k')
     plt.xlabel('Feature 1')
     plt.ylabel('Feature 2')
-    plt.title('Logistic Regression Dataset')
+    plt.title('Logistic Regression with Decision Boundary')
+    plt.legend()
     plt.show()
+
+
 
 if __name__ == "__main__":
     main()
