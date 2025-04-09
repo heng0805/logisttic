@@ -80,6 +80,9 @@ def main():
     test_predictions = model.predict(X_test)
     print( test_predictions)
 
+    accuracy = np.mean(test_predictions == y_test)
+    print(f"Accuracy: {accuracy * 100:.2f}%")
+
     # 绘制散点图
     plt.scatter(X[:, 0], X[:, 1], c=y, cmap=plt.cm.Set1, edgecolor='k')
     plt.xlabel('Feature 1')
