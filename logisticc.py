@@ -80,6 +80,7 @@ def main():
     test_predictions = model.predict(X_test)
     print( test_predictions)
 
+    #计算准确率
     accuracy = np.mean(test_predictions == y_test)
     print(f"Accuracy: {accuracy * 100:.2f}%")
 
